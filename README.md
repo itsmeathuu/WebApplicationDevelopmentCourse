@@ -1,175 +1,207 @@
-# Nutri Toys - Toy Model E-commerce Website
+# 🧸 Nutri Toys — Toy Model E-Commerce Platform
 
-## 1. Project Overview
+A full-stack e-commerce web application for buying and managing toy models, built with **React + Vite** on the frontend and **Node.js + Express + MongoDB** on the backend.
 
-Nutri Toys is an e-commerce system for selling toy models, developed as a split application with a **Frontend** and **Backend**. The project aims to provide a simple, modern, and user-friendly online shopping experience while supporting product, user, and order management for administrative roles.
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-Latest-646CFF?style=flat&logo=vite&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-Latest-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-20-339933?style=flat&logo=node.js&logoColor=white)
+![Express](https://img.shields.io/badge/Express-Latest-000000?style=flat&logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-Latest-47A248?style=flat&logo=mongodb&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-Auth-000000?style=flat&logo=jsonwebtokens&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-yellow?style=flat)
 
-### Main objectives
-- Present product categories and details in a professional and searchable way.
-- Allow users to register, log in, add products to the cart, place orders, and view order history.
-- Provide admin/owner functionality to manage users, products, product images, and orders.
-- Implement basic security using JWT, role-based access control, and token handling.
+---
 
-## 2. Project Structure
+## 📌 Table of Contents
 
-- **Web_nhom1**: React + Vite frontend application
-- **Web_backend1**: Node.js + Express + MongoDB backend API
+- [Overview](#overview)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [Run Flow](#run-flow)
+- [Known Issues](#known-issues)
 
-## 3. Technologies Used
+---
+
+## Overview
+
+Nutri Toys provides a clean and modern shopping experience for toy model enthusiasts. The platform supports:
+
+- Customer-facing product browsing, cart, and order management
+- Admin tools for managing users, products, and orders
+- Owner-level role management
+- Secure authentication with JWT (access + refresh tokens)
+
+---
+
+## Tech Stack
 
 ### Frontend
-- React 18
-- React Router DOM
-- Vite
-- Axios
-- Tailwind CSS
-- Font Awesome / React Icons
-- ESLint
+| Technology | Version |
+|---|---|
+| [React](https://react.dev/) | 18 |
+| [Vite](https://vitejs.dev/) | Latest |
+| [React Router DOM](https://reactrouter.com/) | Latest |
+| [Axios](https://axios-http.com/) | Latest |
+| [Tailwind CSS](https://tailwindcss.com/) | Latest |
+| [Font Awesome](https://fontawesome.com/) / [React Icons](https://react-icons.github.io/react-icons/) | Latest |
 
 ### Backend
-- Node.js 20
-- Express.js
-- MongoDB + Mongoose
-- JWT (access token / refresh token)
-- bcryptjs
-- multer
-- dotenv
-- CORS
-- Nodemon
+| Technology | Version |
+|---|---|
+| [Node.js](https://nodejs.org/) | 20 |
+| [Express.js](https://expressjs.com/) | Latest |
+| [MongoDB](https://www.mongodb.com/) + [Mongoose](https://mongoosejs.com/) | Latest |
+| [JWT (jsonwebtoken)](https://github.com/auth0/node-jsonwebtoken) | Latest |
+| [bcryptjs](https://github.com/dcodeIO/bcrypt.js) | Latest |
+| [multer](https://github.com/expressjs/multer) | Latest |
+| [Nodemon](https://nodemon.io/) | Latest |
 
-### Infrastructure & Support
-- MongoDB Atlas / Local MongoDB
-- REST API
-- Role-based access control: user, admin, owner, registered
+---
 
-## 4. Main Features
+## Features
 
-### For Users
-- Sign up and sign in
-- View the list of products
-- Search, filter, and view product details
-- Add products to the cart
-- Update cart quantities
-- Place orders and view order history
-- View and submit product reviews
-- Update personal profile and change password
+### 👤 Users
+- Register and log in
+- Browse, search, and filter products
+- View product details and reviews
+- Add to cart and manage quantities
+- Place orders and track order history
+- Submit product reviews
+- Update profile and change password
 
-### For Admins
-- Manage products
-- Manage product images
+### 🛠️ Admins
+- Manage products and product images
 - Manage users
-- View all orders
-- Update or delete products and users
+- View and update all orders
 
-### For Owners
-- Change user roles
+### 👑 Owners
+- Assign and change user roles
 
-## 5. System Architecture
+---
 
-### Frontend
-The SPA is built with React, uses React Router for navigation, and communicates with the backend through Axios. The main pages include:
-- Home
-- Product detail page
-- Cart / checkout page
-- User profile page
-- Order history page
-- Admin dashboard
+## Project Structure
 
-### Backend
-The backend is built with Express and organized into the following modules:
-- **controllers**: handle HTTP requests and responses
-- **services**: contain the business logic
-- **middlewares**: handle token validation and file upload
-- **routes**: define API endpoints
-- **config**: manage MongoDB connections
-- **models**: define Mongoose schemas
+```
+.
+├── Web_nhom1/          # Frontend — React + Vite
+└── Web_backend1/       # Backend — Node.js + Express
+    ├── controllers/    # HTTP request handlers
+    ├── services/       # Business logic
+    ├── middlewares/    # Auth & file upload middleware
+    ├── routes/         # API endpoint definitions
+    ├── models/         # Mongoose schemas
+    └── config/         # Database connection
+```
 
-## 6. Installation and Run Guide
+---
+
+## Getting Started
 
 ### Prerequisites
-- Node.js 20.x
-- npm 10.x
-- MongoDB (local or Atlas)
+
+- Node.js `>= 20.x`
+- npm `>= 10.x`
+- MongoDB (local or [Atlas](https://www.mongodb.com/atlas))
 - Git
 
-### 6.1 Backend Setup
+---
 
-1. Open a terminal and go to the backend directory:
-   `cd Web_backend1`
+### Backend Setup
 
-2. Install dependencies:
-   `npm install`
+```bash
+# 1. Navigate to the backend directory
+cd Web_backend1
 
-3. Create a `.env` file in `Web_backend1` with the following example:
-   ```env
-   PORT=8080
-   CONNECTION_STRING=mongodb://127.0.0.1:27017/toykingdom
-   ACCESS_TOKEN_PRI_KEY=your_access_key
-   REFRESH_TOKEN_PRI_KEY=your_refresh_key
-   ACCESSS_TOKEN_EXPIRES_IN=1h
-   REFRESH_TOKEN_EXPIRES_IN=7d
-   SALT_LENGTH=10
-   ```
+# 2. Install dependencies
+npm install
 
-4. Start the backend:
-   `npm start`
+# 3. Create and configure .env (see Environment Variables below)
 
-5. Verify the backend is running:
-   Open `http://localhost:8080/`
+# 4. Start the server
+npm start
+```
 
-### 6.2 Frontend Setup
+Verify the backend is running by visiting: `http://localhost:8080/`  
+Expected response: `Welcome to Toykingdom Server`
 
-1. Open a terminal and go to the frontend directory:
-   `cd Web_nhom1`
+---
 
-2. Install dependencies:
-   `npm install`
+### Frontend Setup
 
-3. Create a `.env` file in `Web_nhom1` if needed for API configuration:
-   ```env
-   VITE_API_BASE_URL=http://localhost:8080
-   ```
+```bash
+# 1. Navigate to the frontend directory
+cd Web_nhom1
 
-4. Start the frontend:
-   `npm run dev -- --host 127.0.0.1 --port 5173`
+# 2. Install dependencies
+npm install
 
-5. Open the browser at:
-   `http://localhost:5173`
+# 3. Create and configure .env (see Environment Variables below)
 
-## 7. Recommended Run Flow
+# 4. Start the dev server
+npm run dev -- --host 127.0.0.1 --port 5173
+```
 
-1. Start MongoDB.
-2. Start the backend first to ensure the APIs are available.
-3. Start the frontend so it can connect to the backend.
-4. Sign up or use an existing admin account.
-5. Manage products, users, and orders from the admin interface.
+Open the app at: `http://localhost:5173`
 
-## 8. Current Environment Notes
+---
 
-In the current test environment, the backend was verified to run successfully by starting the server and calling the root endpoint, which returned:
-- `Welcome to Toykingdom Server`
+## Environment Variables
 
-The frontend is currently blocked by environment issues on this machine:
-- `npm run build` fails because the `vite` binary does not have execute permission.
-- `npm run dev` and `npm run build` also fail because the native Rollup package for macOS Apple Silicon is missing.
+### `Web_backend1/.env`
 
-If you encounter the same issue, try the following:
-1. Remove `node_modules` and `package-lock.json`
-2. Run `npm install` again
-3. Check the executable permission of `node_modules/.bin/vite`
+```env
+PORT=8080
+CONNECTION_STRING=mongodb://127.0.0.1:27017/toykingdom
+ACCESS_TOKEN_PRI_KEY=your_access_secret
+REFRESH_TOKEN_PRI_KEY=your_refresh_secret
+ACCESSS_TOKEN_EXPIRES_IN=1h
+REFRESH_TOKEN_EXPIRES_IN=7d
+SALT_LENGTH=10
+```
 
-## 9. Project Summary
+### `Web_nhom1/.env`
 
-Nutri Toys is an e-commerce project for the toy model industry, combining:
-- A modern, extensible React frontend
-- A secure Node.js/Express backend with role-based access control
-- MongoDB for flexible data storage for products, users, carts, and orders
+```env
+VITE_API_BASE_URL=http://localhost:8080
+```
 
-This project is suitable for demo purposes, academic assignments, or future expansion with features such as online payment, discount codes, order tracking, and cloud hosting integration.
+---
 
-## 10. Contact
+## Run Flow
 
-If you need further support, I can help with:
-- Expanding this README into a more detailed documentation set
-- Standardizing environment variables
-- Fixing frontend/backend runtime issues
+1. Start **MongoDB** (local instance or ensure Atlas connection is active)
+2. Start the **backend** — `cd Web_backend1 && npm start`
+3. Start the **frontend** — `cd Web_nhom1 && npm run dev`
+4. Open `http://localhost:5173` in your browser
+5. Sign up or log in with an existing account
+6. Admins can manage products, users, and orders from the dashboard
+
+---
+
+## Known Issues
+
+> Applies to **macOS Apple Silicon (M1/M2/M3)** machines
+
+The frontend may fail to build due to missing native Rollup binaries or incorrect Vite permissions.
+
+**Fix:**
+
+```bash
+cd Web_nhom1
+rm -rf node_modules package-lock.json
+npm install
+chmod +x node_modules/.bin/vite
+npm run dev
+```
+
+If the issue persists, ensure your Node.js version matches `>= 20.x` and was installed via a native ARM build (not Rosetta).
+
+---
+
+## 📬 Contact
+
+For questions, bug reports, or contributions, please open an issue or submit a pull request.
